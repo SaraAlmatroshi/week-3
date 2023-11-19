@@ -1,0 +1,116 @@
+1- TriangleClassifier
+
+public class TriangleClassifier {
+
+    public static String classifyTriangle(int side1, int side2, int side3) {
+        if (side1 <= 0 || side2 <= 0 || side3 <= 0) {
+            return "Invalid triangle: sides must be positive";
+        }
+
+        if (side1 == side2 && side2 == side3) {
+            return "Equilateral"; // All sides are equal
+        } 
+
+    public static void main(String[] args) {
+        int side1 = -5;
+        int side2 = -9;
+        int side3 = -5;
+
+        // Classify the triangle and display the result
+        String result = classifyTriangle(side1, side2, side3);
+        System.out.println("Triangle is " + result);
+    }
+}
+
+2- SquareStarPattern
+public class SquareStarPattern {
+
+    public static void printSquareStar(int size) {
+        if (size < 2) {
+            System.out.println("Invalid size. Size must be 2 or greater.");
+            return;
+        }
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                // Print stars 
+                if (i == 0 || i == size - 1 || j == 0 || j == size - 1) {
+                    System.out.print("* ");
+                } else {
+                    System.out.print("  "); // Print spaces
+                }
+            }
+            System.out.println(); // Move to the next line 
+        }
+    }
+
+    public static void main(String[] args) {
+        int squareSize = 5; // Change this value 
+
+        // Print the square star pattern
+        printSquareStar(squareSize);
+    }
+}
+
+3- NumberClassification
+public class NumberClassification {
+
+    // Method to classify the number as Perfect, Abundant, or Deficient
+    public static String classifyNumber(int num) {
+        if (num <= 0) {
+            return "Invalid number";
+        }
+
+        int sum = 0;
+        
+        // Find the sum of factors (aliquot sum) excluding the number itself
+        for (int i = 1; i <= num / 2; i++) {
+            if (num % i == 0) {
+                sum += i; // Add the divisor to the sum if it's a factor of the number
+            }
+        }
+
+    public static void main(String[] args) {
+        int numberToCheck = 99; // Change this number to check classification
+
+        // Classify the number and display the result
+        String result = classifyNumber(numberToCheck);
+        System.out.println(numberToCheck + " is a " + result + " number.");
+    }
+}
+
+4- ArmstrongNumber
+public class ArmstrongNumber {
+
+    public static boolean isArmstrong(int number) {
+        // Convert the number 
+        String strNum = String.valueOf(number);
+        int length = strNum.length();
+
+        int sum = 0;
+        int temp = number;
+
+        // Calculate the sum of each digit 
+        while (temp > 0) {
+            int digit = temp % 10;
+            sum += Math.pow(digit, length);
+            temp /= 10;
+        }
+
+        // Check if the sum is equal to the original number
+        return sum == number;
+    }
+
+    public static void main(String[] args) {
+        int num = 378777; // Change this number to check if it's an Armstrong number
+
+        // Check if the number is an Armstrong number 
+        boolean result = isArmstrong(num);
+        if (result) {
+            System.out.println(num + " is an Armstrong number.");
+        } else {
+            System.out.println(num + " is not an Armstrong number.");
+        }
+    }
+}
+
